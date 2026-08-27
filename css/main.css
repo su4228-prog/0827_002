@@ -1,0 +1,1841 @@
+/* ================================================================
+   main.css
+   Main page only: MAIN visual slider, QUICK menu, MINI SLIDER,
+   SIDE BANNER, COMMON BOOK SECTION, TODAY CHOICE, MD, STANDARD
+   BOOKS, TWO PAGE SLIDER, PUBLISHER, TREND, READ ITEM, AI PICKS,
+   BEST, CASTing, event sections, etc.
+================================================================ */
+
+/* ==================================================
+   MAIN
+================================================== */
+
+.main-content {
+    width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 900px)
+        275px;
+
+    column-gap: 35px;
+}
+
+
+/* ==================================================
+   MAIN SLIDER
+================================================== */
+
+.main-slider {
+    position: relative;
+
+    width: 100%;
+    height: 380px;
+
+    overflow: hidden;
+
+    background: #eee;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    touch-action: pan-y;
+}
+
+.main-slider-track {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    transition:
+        transform .48s
+        cubic-bezier(.22, .61, .36, 1);
+
+    will-change: transform;
+}
+
+.main-slider.dragging
+.main-slider-track {
+    transition: none;
+}
+
+.main-slide {
+    width: 100%;
+    height: 100%;
+
+    flex: 0 0 100%;
+}
+
+.main-slide a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+.main-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* ==================================================
+   MAIN CONTROL
+================================================== */
+
+.slider-control {
+    position: absolute;
+
+    right: 14px;
+    bottom: 13px;
+
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: #fff;
+
+    background:
+        rgba(30, 30, 110, .65);
+
+    border-radius: 18px;
+
+    z-index: 20;
+}
+
+.pause-btn {
+    width: 34px;
+    height: 31px;
+
+    color: #fff;
+}
+
+.slide-prev,
+.slide-next {
+    width: 24px;
+    height: 31px;
+
+    color: #fff;
+
+    font-size: 17px;
+}
+
+.slide-number {
+    min-width: 50px;
+
+    text-align: center;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.view-all {
+    padding-right: 11px;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   QUICK
+================================================== */
+
+.quick-wrap {
+    width: 100%;
+
+    margin-top: 31px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(10, 1fr);
+
+    gap: 13px;
+}
+
+.quick-item {
+    text-align: center;
+}
+
+.quick-icon {
+    width: 67px;
+    height: 67px;
+
+    margin: 0 auto 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7f7f7;
+
+    border-radius: 15px;
+}
+
+.quick-icon img {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+}
+
+.quick-text {
+    color: #555;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   MINI SLIDER
+================================================== */
+
+.mini-slider {
+    position: relative;
+
+    width: 100%;
+    height: 380px;
+
+    overflow: hidden;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    touch-action: pan-y;
+}
+
+.mini-image-box {
+    position: relative;
+
+    width: 100%;
+    height: 272px;
+
+    overflow: hidden;
+}
+
+.mini-image-track {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    transition:
+        transform .42s
+        cubic-bezier(.22, .61, .36, 1);
+
+    will-change: transform;
+}
+
+.mini-slider.dragging
+.mini-image-track {
+    transition: none;
+}
+
+.mini-slide-image {
+    width: 100%;
+    height: 100%;
+
+    flex: 0 0 100%;
+}
+
+.mini-slide-image a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+.mini-slide-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+.mini-dots {
+    position: absolute;
+
+    top: 251px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 5px;
+
+    z-index: 10;
+}
+
+.mini-dot {
+    width: 6px;
+    height: 6px;
+
+    background:
+        rgba(255, 255, 255, .55);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.mini-dot.active {
+    background: #fff;
+}
+
+.mini-info {
+    height: 108px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-label {
+    margin-bottom: 6px;
+
+    color: #514cb4;
+
+    font-size: 12px;
+}
+
+.mini-title {
+    margin-bottom: 4px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.mini-price {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   SIDE BANNER
+================================================== */
+
+.side-banner {
+    width: 100%;
+    height: 94px;
+
+    margin-top: 31px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+.side-banner a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+.side-banner img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   COMMON BOOK SECTION
+================================================== */
+
+.book-section {
+    width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.section-title {
+    color: #111;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+.section-more {
+    margin-left: auto;
+
+    color: #111;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   TODAY CHOICE
+================================================== */
+
+.today-choice {
+    margin-top: 110px;
+    margin-bottom: 90px;
+}
+
+.choice-header {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+.choice-title {
+    margin-right: 38px;
+
+    color: #111;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.choice-category {
+    color: #4e56b0;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.choice-more {
+    margin-left: auto;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.choice-content {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        650px
+        minmax(0, 1fr);
+
+    column-gap: 60px;
+
+    align-items: center;
+
+    min-height: 280px;
+}
+
+.main-book-slider {
+    position: relative;
+
+    width: 650px;
+    height: 255px;
+
+    overflow: hidden;
+}
+
+.main-book-slide {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    transition:
+        transform .52s
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+.main-book-current {
+    transform: translateX(0);
+}
+
+.main-book-next {
+    transform: translateX(100%);
+}
+
+.main-book-slider.slide-next
+.main-book-current {
+    transform: translateX(-100%);
+}
+
+.main-book-slider.slide-next
+.main-book-next {
+    transform: translateX(0);
+}
+
+.main-book-slider.prepare-prev
+.main-book-next {
+    transition: none;
+
+    transform: translateX(-100%);
+}
+
+.main-book-slider.slide-prev
+.main-book-current {
+    transform: translateX(100%);
+}
+
+.main-book-slider.slide-prev
+.main-book-next {
+    transform: translateX(0);
+}
+
+.main-book-cover {
+    width: 190px;
+    height: 245px;
+
+    flex-shrink: 0;
+
+    /* 기존보다 더 얇은 약 0.05 느낌의 여백 */
+    padding: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid #e4e4e4;
+}
+
+/* 메인 도서는 a 태그까지 박스 전체를 채워야 이미지가 작아지지 않음 */
+.main-book-cover a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main-book-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.choice-main-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.choice-main-title {
+    margin-bottom: 18px;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    line-height: 1.45;
+}
+
+.choice-main-author {
+    margin-bottom: 13px;
+
+    color: #5059b0;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.choice-main-description {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+.choice-main-publisher {
+    margin-top: 12px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+.choice-small-slider {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.choice-small-track {
+    display: flex;
+
+    gap: 16px;
+
+    transition:
+        transform .52s
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+.choice-small-track.no-transition {
+    transition: none;
+}
+
+.choice-small-book {
+    flex:
+        0 0
+        calc((100% - 32px) / 3);
+
+    min-width:
+        calc((100% - 32px) / 3);
+}
+
+.choice-small-cover {
+    width: 100%;
+    height: 205px;
+
+    /* 기존보다 더 얇은 약 0.05 느낌의 여백 */
+    padding: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+}
+
+.choice-small-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.choice-small-title {
+    margin-top: 10px;
+
+    overflow: hidden;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.choice-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    width: 44px;
+    height: 44px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    font-size: 28px;
+
+    z-index: 20;
+}
+
+.choice-prev {
+    left: -64px;
+}
+
+.choice-next {
+    right: -64px;
+}
+
+
+/* ==================================================
+   MD
+================================================== */
+
+.md-section {
+    width: 1200px;
+
+    margin: 35px auto 110px;
+}
+
+.md-banners {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 78px;
+}
+
+.md-banner {
+    height: 180px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+}
+
+.md-banner a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+.md-banner img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.category-menu {
+    margin-left: 42px;
+
+    display: flex;
+    align-items: center;
+}
+
+.category-menu span {
+    position: relative;
+
+    padding: 0 13px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.category-menu span:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width: 1px;
+    height: 11px;
+
+    transform: translateY(-50%);
+
+    background: #ddd;
+}
+
+.category-menu .active {
+    color: #404ca8;
+
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   STANDARD BOOKS
+================================================== */
+
+.six-book-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.standard-book {
+    min-width: 0;
+}
+
+.standard-cover {
+    width: 100%;
+    height: 263px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #f8f8f8;
+
+    border: 1px solid #e6e6e6;
+}
+
+.standard-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.standard-title {
+    margin-top: 14px;
+
+    color: #222;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.standard-author {
+    margin-top: 7px;
+
+    overflow: hidden;
+
+    color: #888;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ==================================================
+   TWO PAGE SLIDER
+================================================== */
+
+.page-slider-wrap {
+    position: relative;
+}
+
+.page-slider {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.page-track {
+    width: 200%;
+
+    display: flex;
+
+    transition:
+        transform .6s
+        cubic-bezier(.22, .61, .36, 1);
+}
+
+.page-slide {
+    width: 50%;
+
+    flex: 0 0 50%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.section-arrow {
+    position: absolute;
+
+    top: 115px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    z-index: 20;
+}
+
+.section-arrow.prev {
+    left: -65px;
+}
+
+.section-arrow.next {
+    right: -65px;
+}
+
+.section-arrow.disabled {
+    opacity: .35;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   PUBLISHER
+================================================== */
+
+.publisher-section {
+    margin-top: 100px;
+    margin-bottom: 105px;
+}
+
+
+/* ==================================================
+   TREND
+================================================== */
+
+.trend-section {
+    margin-top: 70px;
+    margin-bottom: 130px;
+}
+
+
+
+
+/* ==================================================
+   READ ITEM - 요즘 잘나가는 독서&기록 베스트 템
+================================================== */
+
+.read-item-section {
+    width: 1200px;
+    margin: 70px auto 140px;
+}
+
+.read-item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.read-item-title {
+    color: #111;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.read-item-more {
+    margin-left: auto;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.read-item-slider-wrap {
+    position: relative;
+}
+
+.read-item-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.read-item-track {
+    display: flex;
+    gap: 24px;
+    transform: translateX(0);
+    transition: transform .48s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+.read-item-track.no-transition {
+    transition: none;
+}
+
+.read-item-card {
+    flex: 0 0 calc((100% - 120px) / 6);
+    min-width: calc((100% - 120px) / 6);
+}
+
+.read-item-card a {
+    display: block;
+}
+
+.read-item-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f7f7f7;
+    border: 1px solid #e6e6e6;
+}
+
+.read-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.read-item-name {
+    margin-top: 14px;
+    color: #171717;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: keep-all;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.read-item-arrow {
+    position: absolute;
+    top: 68px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    color: #333;
+    font-size: 27px;
+    font-weight: 300;
+    z-index: 20;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.read-item-prev {
+    left: -65px;
+}
+
+.read-item-next {
+    right: -65px;
+}
+
+.read-item-arrow.disabled {
+    opacity: .35;
+    /* href 링크의 손 모양 커서를 유지 */
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+
+
+/* ==================================================
+   AI PICKS
+================================================== */
+
+.ai-picks-section {
+    width: 1200px;
+    margin: 35px auto 140px;
+}
+
+.ai-picks-inner {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    column-gap: 72px;
+    align-items: start;
+}
+
+.ai-picks-intro {
+    padding-top: 4px;
+}
+
+.ai-picks-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.ai-picks-logo {
+    width: 116px;
+    height: auto;
+    object-fit: contain;
+}
+
+.ai-picks-more {
+    margin-top: 8px;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.ai-picks-copy {
+    margin-top: 28px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.ai-picks-login {
+    width: 218px;
+    height: 46px;
+    margin-top: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #474fc1;
+    background: #fff;
+    border: 1px solid #5058d7;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ai-picks-books {
+    display: grid;
+
+    /*
+        MD들이 신중하게 골랐어요의 도서 카드와
+        비슷한 실제 표지 크기로 고정
+    */
+    grid-template-columns: repeat(4, 180px);
+
+    gap: 28px;
+
+    justify-content: start;
+
+    margin-left: 34px;
+}
+
+.ai-pick-card {
+    min-width: 0;
+    text-align: center;
+}
+
+.ai-pick-card a {
+    display: block;
+}
+
+.ai-pick-cover {
+    /*
+        MD 도서 표지(.standard-cover)의
+        화면상 크기와 맞춤
+    */
+    width: 180px;
+    height: 263px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #f8f8f8;
+
+    border: 1px solid #e6e6e6;
+}
+
+.ai-pick-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ai-pick-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    margin-top: 14px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.ai-pick-badge.badge-0 {
+    color: #4f58b9;
+    background: #eef0ff;
+}
+
+.ai-pick-badge.badge-1 {
+    color: #4c9c26;
+    background: #eff8e9;
+}
+
+.ai-pick-badge.badge-2 {
+    color: #5f63b3;
+    background: #f0f0fb;
+}
+
+.ai-pick-badge.badge-3 {
+    color: #5ba338;
+    background: #edf8e8;
+}
+
+.ai-pick-title {
+    margin-top: 10px;
+    color: #111;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: keep-all;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ai-picks-loading {
+    grid-column: 1 / -1;
+    padding: 95px 0;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+/* ==================================================
+   BEST
+================================================== */
+
+.best-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 58px 0 82px;
+    background: #f7f7f7;
+}
+
+.best-inner {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr);
+    column-gap: 52px;
+    align-items: start;
+}
+
+.best-side {
+    padding-top: 2px;
+}
+
+.best-side-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.best-title {
+    color: #111;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.best-more {
+    color: #111;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.best-category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.best-category {
+    color: #666;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.best-category.active {
+    color: #4c56b4;
+    font-weight: 700;
+}
+
+.best-category.spacer-top {
+    margin-top: 14px;
+    color: #333;
+    font-weight: 700;
+}
+
+.best-books {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 46px 24px;
+}
+
+.best-card {
+    min-width: 0;
+}
+
+.best-cover {
+    width: 100%;
+    height: 252px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e4e4e4;
+}
+
+.best-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.best-meta {
+    margin-top: 12px;
+    min-height: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.best-rank {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #777;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.best-first-badge {
+    width: 116px;
+    height: 24px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.best-change {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.best-change.up {
+    color: #e34545;
+}
+
+.best-change.down {
+    color: #3d65c8;
+}
+
+.best-change.same {
+    color: #999;
+}
+
+.best-book-title {
+    margin-top: 8px;
+    color: #111;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: keep-all;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.best-loading {
+    grid-column: 1 / -1;
+    padding: 110px 0;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+/* ==================================================
+   교보문고에서만 만날 수 있어요
+================================================== */
+
+.kyobo-only-section {
+    width: 1200px;
+    margin: 90px auto 120px;
+}
+
+.kyobo-only-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.kyobo-only-title {
+    color: #111;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.kyobo-only-more {
+    margin-left: auto;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.kyobo-only-slider-wrap {
+    position: relative;
+}
+
+.kyobo-only-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.kyobo-only-track {
+    display: flex;
+    gap: 24px;
+    transform: translateX(0);
+    transition: transform .48s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+.kyobo-only-card {
+    flex: 0 0 calc((100% - 120px) / 6);
+    min-width: calc((100% - 120px) / 6);
+}
+
+.kyobo-only-card a {
+    display: block;
+}
+
+.kyobo-only-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+}
+
+.kyobo-only-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kyobo-only-name {
+    margin-top: 14px;
+    color: #171717;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: keep-all;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.kyobo-only-arrow {
+    position: absolute;
+    top: 68px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    color: #333;
+    font-size: 27px;
+    font-weight: 300;
+
+    z-index: 20;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.kyobo-only-prev {
+    left: -65px;
+}
+
+.kyobo-only-next {
+    right: -65px;
+}
+
+.kyobo-only-arrow.disabled {
+    opacity: .35;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   교보문고 ONLY 하단 랜덤 배너
+================================================== */
+
+.kyobo-only-banner {
+    width: 100%;
+    height: 150px;
+    margin-top: 72px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f3f3f3;
+}
+
+.kyobo-only-banner a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.kyobo-only-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* ==================================================
+   CASTing
+================================================== */
+
+.casting-section {
+    width: 1200px;
+    margin: 105px auto 90px;
+}
+
+.casting-header,
+.event-feature-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.casting-title,
+.event-feature-title {
+    color: #111;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.casting-more,
+.event-feature-more {
+    margin-left: auto;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.casting-slider-wrap,
+.event-feature-slider-wrap {
+    position: relative;
+}
+
+.casting-slider,
+.event-feature-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.casting-track,
+.event-feature-track {
+    display: flex;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform .58s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+.casting-page {
+    width: 100%;
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.casting-card {
+    min-width: 0;
+}
+
+.casting-card a {
+    display: block;
+}
+
+.casting-image {
+    width: 100%;
+    height: 214px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+}
+
+.casting-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.casting-name {
+    margin-top: 13px;
+    color: #171717;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.55;
+    word-break: keep-all;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.casting-arrow,
+.event-feature-arrow {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    color: #333;
+    font-size: 27px;
+    font-weight: 300;
+
+    z-index: 20;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.casting-arrow {
+    top: 88px;
+}
+
+.casting-prev,
+.event-feature-prev {
+    left: -65px;
+}
+
+.casting-next,
+.event-feature-next {
+    right: -65px;
+}
+
+.casting-arrow.disabled,
+.event-feature-arrow.disabled {
+    opacity: .35;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   이벤트의 정성이 달라요
+================================================== */
+
+.event-feature-section {
+    width: 1200px;
+    margin: 0 auto 120px;
+}
+
+.event-feature-tabs {
+    margin-left: 42px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.event-feature-tab {
+    position: relative;
+    padding: 0 13px;
+    color: #666;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.event-feature-tab:first-child {
+    padding-left: 0;
+}
+
+.event-feature-tab:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 11px;
+    transform: translateY(-50%);
+    background: #ddd;
+}
+
+.event-feature-tab.active {
+    color: #4b54b3;
+    font-weight: 700;
+}
+
+.event-feature-page {
+    width: 100%;
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.event-feature-card {
+    min-width: 0;
+}
+
+.event-feature-card a {
+    display: block;
+}
+
+.event-feature-image {
+    width: 100%;
+    height: 165px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5f5f5;
+}
+
+.event-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-feature-arrow {
+    top: 61px;
+}
+
+
+
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1250px) {
+
+    .main-content,
+    .today-choice,
+    .md-section,
+    .book-section,
+    .read-item-section {
+        width: 1000px;
+    }
+
+    .main-content {
+        grid-template-columns:
+            735px
+            240px;
+
+        column-gap: 25px;
+    }
+
+    .six-book-grid,
+    .page-slide {
+        gap: 18px;
+    }
+
+    .standard-cover {
+        height: 220px;
+    }
+
+    .section-arrow,
+    .choice-arrow,
+    .read-item-arrow {
+        display: none;
+    }
+
+    .read-item-track {
+        gap: 18px;
+    }
+
+    .read-item-card {
+        flex-basis: calc((100% - 90px) / 6);
+        min-width: calc((100% - 90px) / 6);
+    }
+
+}

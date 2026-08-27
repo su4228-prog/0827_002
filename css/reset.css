@@ -1,0 +1,69 @@
+/* ================================================================
+   reset.css
+================================================================ */
+
+/* ==================================================
+   RESET (브라우저 기본 스타일 초기화)
+================================================== */
+
+/* 모든 요소 여백/박스모델 통일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+/* 기본 폰트 및 배경/글자색 */
+body {
+    font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+
+    color: #292929;
+    background: #fff;
+}
+
+/* 리스트 마커 제거 */
+ul,
+li {
+    list-style: none;
+}
+
+/* 링크 밑줄/색상 초기화 */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 버튼 기본 스타일 제거 */
+button {
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* 입력창 폰트 상속 */
+input {
+    font: inherit;
+}
+
+/* 이미지 기본 표시 방식 */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* 공통 컨테이너(가운데 정렬 래퍼) */
+.inner {
+    width: 1200px;
+    margin: 0 auto;
+}
+
