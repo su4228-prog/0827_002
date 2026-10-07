@@ -3,7 +3,7 @@
 교보문고 UI를 참고해 제작한 온라인 서점 클론 프로젝트입니다.  
 순수 HTML, CSS, Vanilla JavaScript로 메인 페이지와 도서 상세 페이지를 구현했으며, 일부 도서 섹션은 **Kakao 도서 검색 REST API**를 호출해 실제 도서 데이터를 동적으로 렌더링합니다.
 
-> 배포 링크: https://imchoi2828-arch.github.io/26.03.17-/
+> 배포 링크: https://su4228-prog.github.io/0827_002/ 
 
 ---
 
