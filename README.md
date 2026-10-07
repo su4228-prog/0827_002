@@ -1,4 +1,5 @@
-# 📚 KYOBOBOOK-Kakao 도서 검색 API 활용 UI Project
+# 📚 KYOBOBOOK-Kakao
+도서 검색 API 활용 UI Project
 
 교보문고 UI를 참고해 제작한 **온라인 서점 클론 프로젝트**입니다.  
 HTML5 · CSS3 · Vanilla JavaScript를 기반으로 메인/상세 화면을 구현하고, **Kakao 도서 검색 REST API**를 연동해 여러 도서 섹션을 실제 데이터로 동적 렌더링했습니다.
@@ -6,7 +7,7 @@ HTML5 · CSS3 · Vanilla JavaScript를 기반으로 메인/상세 화면을 구�
 **HTML5 · CSS3 · Vanilla JavaScript · ES Module · Kakao REST API**
 
 🔗 Demo :
-🔗 Site Link : 
+🔗 Site Link : https://su4228-prog.github.io/0827_002/ 
 ---
 
 ## 📌 프로젝트 개요
