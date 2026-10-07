@@ -6,7 +6,7 @@ HTML5 · CSS3 · Vanilla JavaScript를 기반으로 메인/상세 화면을 구�
 **HTML5 · CSS3 · Vanilla JavaScript · ES Module · Kakao REST API**
 
 
-🔗 Site Link : https://su4228-prog.github.io/0827_002/
+🔗 Site Link : https://su4228-prog.github.io/0827_002/ <br>
 🔗 Demo :https://github.com/user-attachments/assets/24f107a4-d09c-4055-97cd-91db008ce881
 
 
