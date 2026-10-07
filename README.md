@@ -1,279 +1,164 @@
-# 📚 KYOBO BOOK
+# 📚 KYOBOBOOK-Kakao 도서 검색 API 활용 UI Project
 
-교보문고 UI를 참고해 제작한 온라인 서점 클론 프로젝트입니다.  
-순수 HTML, CSS, Vanilla JavaScript로 메인 페이지와 도서 상세 페이지를 구현했으며, 일부 도서 섹션은 **Kakao 도서 검색 REST API**를 호출해 실제 도서 데이터를 동적으로 렌더링합니다.
+교보문고 UI를 참고해 제작한 **온라인 서점 클론 프로젝트**입니다.  
+HTML5 · CSS3 · Vanilla JavaScript를 기반으로 메인/상세 화면을 구현하고, **Kakao 도서 검색 REST API**를 연동해 여러 도서 섹션을 실제 데이터로 동적 렌더링했습니다.
 
-> 배포 링크: https://su4228-prog.github.io/0827_002/ 
+**HTML5 · CSS3 · Vanilla JavaScript · ES Module · Kakao REST API**
 
+🔗 Demo :
+🔗 Site Link : 
 ---
 
 ## 📌 프로젝트 개요
 
 | 항목 | 내용 |
 | --- | --- |
-| 프로젝트명 | KYOBO BOOK-Kakao 도서 검색 API 활용 UI project |
+| 프로젝트명 | **BOOK FOREST** |
 | 참고 서비스 | 교보문고 |
-| 주요 기술 | HTML5, CSS3, Vanilla JavaScript, Kakao 도서 검색 API |
-| 페이지 | `index.html`, `sub.html` |
+| 구성 페이지 | `index.html` 메인 · `sub.html` 상세 |
+| 핵심 기술 | Kakao 도서 검색 API · ES Module · DOM 동적 렌더링 · 슬라이더 |
 | 실행 방식 | 별도 빌드 과정 없는 정적 웹 프로젝트 |
-| CSS | 4개 파일, 현재 압축본 기준 약 4,114줄 |
-| JavaScript | 6개 파일, 현재 압축본 기준 약 4,988줄 |
-| 이미지 리소스 | 현재 압축본 기준 113개 |
-
-현재 프로젝트는 메인 페이지와 상세 페이지를 시각적으로 재현하는 데 초점을 두고 있습니다. 메인 페이지의 여러 도서 큐레이션 영역은 Kakao API 응답을 사용하지만, 상세 페이지의 핵심 상품 정보는 **`2026 ADsP 데이터분석 준전문가` 도서 기준의 고정 콘텐츠**로 구성되어 있습니다.
+| 메인 데이터 | Kakao API + 로컬 이미지 리소스 |
+| 상세 데이터 | ADsP 상품 정보 고정 + 연관 도서 Kakao API |
 
 ---
 
-## 🖥️ 구현 화면
+## ✨ 주요 구현
 
-### 1. 메인 페이지 — `index.html`
-
-메인 페이지는 교보문고 홈 화면 형태로 구성되어 있으며 다음 기능이 구현되어 있습니다.
-
-- 스크롤 위치에 따른 헤더 고정
-- 메인 비주얼 슬라이더
-  - 로컬 이미지 29개 사용
-  - 3초 간격 자동 전환
-  - 이전 / 다음 이동
-  - 재생 / 일시정지
-  - 마우스·터치 드래그 이동
-- 미니 슬라이더
-- `오늘의 선택` 도서 영역
-- `MD들이 신중하게 골랐어요` 도서 영역
-- `출판사에서 자신있게 추천해요` 도서 영역
-- `트렌드+가 지금 읽을 책을 골랐어요` 도서 영역
-- 독서·기록 아이템 슬라이더
-- AI Picks
-- 베스트 도서 영역
-- 교보문고 ONLY 콘텐츠 슬라이더 및 랜덤 배너
-- CASTing 콘텐츠 슬라이더
-- 이벤트 배너 슬라이더
-- 푸터 UI
-
-도서 중심 섹션 중 `오늘의 선택`, MD 추천, 출판사 추천, 트렌드+, AI Picks, 베스트 영역은 Kakao 도서 검색 API를 이용해 데이터를 가져옵니다.
-
-### 2. 상세 페이지 — `sub.html`
-
-상세 페이지는 `2026 ADsP 데이터분석 준전문가` 도서를 기준으로 제작되어 있습니다.
-
-- 상품명 / 저자 / 출판사 / 가격 / 포인트 / 배송정보 UI
-- 앞표지·측면·뒷표지 이미지 갤러리
-- 이벤트 영역
-- AI 연관 추천 도서
-- 기분 좋은 발견 영역
-- 이 분야의 베스트
-- 키워드 Pick
-- 기본정보
-- 책 소개
-- 시리즈
-- 상세 이미지
-- 목차
-- 작가정보
-- 출판사 리뷰
-- Klover 리뷰
-- 문장수집
-- 교환 / 반품 / 품절 안내
-- 이 분야 신간
-- 광고 자동 슬라이더
-- 상세 섹션 펼치기 / 접기
-- 상단 상세 탭 스크롤 이동
-- 2차 도서정보 내비게이션 노출
-- 리뷰 이미지 라이트박스
-- 하단 구매 바 수량 증감 및 총 금액 계산
-
-상세 페이지의 `AI 연관 추천`, `이 분야의 베스트`, `키워드 Pick`, `저자 도서`, `이 분야 신간` 영역은 Kakao API 데이터로 채워집니다.
+| 구분 | 실제 구현 내용 |
+| --- | --- |
+| **메인 UI** | 스티키 헤더, 메인 비주얼 슬라이더, 미니 슬라이더, 로컬 배너/콘텐츠 슬라이더 |
+| **API 도서 섹션** | 오늘의 선택, MD 추천, 출판사 추천, 트렌드+, AI Picks, 베스트 |
+| **상세 UI** | 표지 갤러리, 상세 탭 스크롤, 콘텐츠 펼치기/접기, 리뷰 이미지 라이트박스 |
+| **상세 API 섹션** | AI 연관 추천, 이 분야의 베스트, 키워드 Pick, 저자 도서, 이 분야 신간 |
+| **구매 인터랙션** | 수량 증감, 수량에 따른 총 상품금액 자동 계산 |
+| **데이터 처리** | 제목/ISBN 중복 제거, 제외 키워드 필터링, 누락 데이터 검사, HTML 이스케이프 |
 
 ---
 
-## 🔄 현재 데이터 흐름
-
-현재 코드의 실제 동작은 아래와 같습니다.
+## 🏗️ 시스템 아키텍처
 
 ```text
-index.html 진입
-    │
-    ├─ layout.js
-    │   └─ 헤더 / 메인 슬라이더 / 미니 슬라이더 제어
-    │
-    ├─ init.js
-    │   └─ sections.js의 API 기반 섹션 로딩 시작
-    │
-    ├─ core.js
-    │   └─ Kakao 도서 API 호출 + 공통 필터 / 헬퍼
-    │
-    └─ 도서 카드 또는 일부 배너 클릭
-         └─ sub.html로 이동
+┌──────────────────────────── 사용자 브라우저 ────────────────────────────┐
+│                                                                         │
+│  ┌──────────────────────┐              ┌───────────────────────────┐   │
+│  │     index.html       │              │        sub.html           │   │
+│  │      메인 페이지      │              │        상세 페이지         │   │
+│  └──────────┬───────────┘              └────────────┬──────────────┘   │
+│             │                                        │                  │
+│      ┌──────▼──────┐                          ┌──────▼──────┐          │
+│      │  layout.js  │                          │   sub.js    │          │
+│      │ - 헤더       │                          │ - 갤러리     │          │
+│      │ - 메인 슬라이더│                         │ - 상세 탭     │          │
+│      │ - 미니 슬라이더│                         │ - 리뷰 확대   │          │
+│      └─────────────┘                          │ - 수량 계산   │          │
+│                                               │ - API 도서    │          │
+│      ┌─────────────┐                          └──────┬──────┘          │
+│      │   init.js   │                                 │                 │
+│      │ 초기 실행점  │                                 │ fetch()         │
+│      └──────┬──────┘                                 │                 │
+│             ▼                                        │                 │
+│      ┌─────────────┐                                 │                 │
+│      │ sections.js │                                 │                 │
+│      │ 섹션별 렌더링 │                                 │                 │
+│      └──────┬──────┘                                 │                 │
+│             │                                        │                 │
+│      ┌──────▼──────────────┐                         │                 │
+│      │ book-components.js │                         │                 │
+│      │ - 공통 도서 카드     │                         │                 │
+│      │ - 중복 없는 도서 수집 │                         │                 │
+│      │ - 공통 2페이지 슬라이더│                         │                 │
+│      └──────┬──────────────┘                         │                 │
+│             │                                        │                 │
+│      ┌──────▼──────┐                                 │                 │
+│      │   core.js   │                                 │                 │
+│      │ - API 호출   │────── fetch() ──────────────────┤                 │
+│      │ - 공통 헬퍼  │                                 │                 │
+│      │ - 데이터 필터│                                 │                 │
+│      └─────────────┘                                 │                 │
+│                                                                         │
+│   도서 카드 / 일부 배너 클릭 ───────────────► `sub.html` 이동             │
+└──────────────────────────────────────────────┬──────────────────────────┘
+                                               │
+                                               ▼
+                         ┌────────────────────────────────────┐
+                         │       Kakao REST API (외부)        │
+                         │  GET /v3/search/book?query=...     │
+                         │  documents[] + meta                │
+                         └────────────────────────────────────┘
+```
 
+### 현재 페이지 연결 방식
+
+메인 페이지에서 도서 카드나 일부 배너를 클릭하면 `sub.html`로 이동합니다.  
+현재 코드는 클릭한 도서 객체를 `localStorage`나 URL 파라미터로 전달하지 않으며, `sub.html`의 기본 상품 정보는 **`2026 ADsP 데이터분석 준전문가` 도서 기준으로 고정**되어 있습니다.
+
+메인 페이지의 API 로직은 `core.js`를 중심으로 모듈화되어 있고, 상세 페이지는 `sub.js` 안에서 **별도의 Kakao API 호출 로직**을 사용합니다.
+
+---
+
+## 🔄 데이터 흐름
+
+### 메인 페이지
+
+```text
+페이지 진입
+   │
+   ▼
+init.js
+   │
+   ├─ loadChoice()
+   ├─ loadMD()
+   ├─ loadPublisherBooks()
+   ├─ loadTrendBooks()
+   ├─ loadAIPicks()
+   └─ loadBestBooks()
+   │
+   ▼
+Promise.all()로 API 섹션 동시 로딩
+   │
+   ▼
+collectUniqueBooks()
+   │
+   ├─ fetchKakaoBooks()
+   ├─ 제목 / 썸네일 누락 검사
+   ├─ 제외 키워드 필터링
+   ├─ 제목 정규화 후 중복 제거
+   └─ ISBN 중복 제거
+   │
+   ▼
+createStandardBook() / 섹션별 카드 생성
+   │
+   ▼
+DOM에 도서 카드 렌더링
+```
+
+### 상세 페이지
+
+```text
 sub.html 진입
-    │
-    ├─ 고정된 ADsP 상품 상세 콘텐츠 표시
-    │
-    └─ sub.js
-         ├─ 상세 화면 인터랙션 제어
-         └─ Kakao API를 다시 호출해 연관 도서 영역 렌더링
+   │
+   ├─ 고정 ADsP 상품 상세 정보 표시
+   │
+   └─ sub.js 실행
+         │
+         ├─ 갤러리 / 탭 / 리뷰 / 구매 수량 인터랙션
+         │
+         └─ collectSubBooks()
+               │
+               ▼
+          fetchSubBooks()
+               │
+               ▼
+          Kakao REST API
+               │
+               ▼
+          연관 도서 영역 렌더링
 ```
-
-### 메인 → 상세 페이지 연결 방식
-
-현재 메인 페이지에서는 선택한 도서 객체를 전달하지 않습니다.
-
-`index.html` 하단의 클릭 라우팅 코드가 주요 도서 카드와 배너 클릭을 감지한 뒤 모두 아래 페이지로 이동시킵니다.
-
-```text
-sub.html
-```
-
-따라서 현재 버전에는 다음 기능이 구현되어 있지 않습니다.
-
-- 클릭한 도서 데이터를 `localStorage`에 저장
-- URL 파라미터로 선택한 도서 전달
-- 선택한 도서에 따라 상세 페이지의 상품명·가격·표지를 동적으로 변경
 
 ---
 
-## 🏗️ JavaScript 구조
-
-메인 페이지의 JavaScript는 기능별 ES Module로 분리되어 있습니다.
-
-### `js/core.js`
-
-Kakao API와 공통 데이터 처리 담당
-
-- `fetchKakaoBooks()` — Kakao 도서 검색 API 호출
-- `escapeHTML()` — API 응답값 HTML 이스케이프
-- `getAuthor()` — 저자명 가공
-- `getDescription()` — 소개문 가공
-- `getISBN()` — ISBN 추출
-- `isExcluded()` — 제외 키워드 기반 도서 필터
-
-### `js/book-components.js`
-
-여러 섹션에서 재사용하는 도서 로직 담당
-
-- `collectUniqueBooks()` — 여러 검색어에서 중복 없는 도서 수집
-- 제목 정규화 기반 중복 제거
-- ISBN 기반 중복 제거
-- 썸네일 / 제목 없는 데이터 제외
-- `createStandardBook()` — 공통 도서 카드 생성
-- `setupTwoPageSlider()` — 2페이지 슬라이더 공통 처리
-
-### `js/layout.js`
-
-레이아웃 및 상단 슬라이더 담당
-
-- 스티키 헤더
-- 메인 슬라이더
-- 미니 슬라이더
-- 자동 재생
-- 이전 / 다음 버튼
-- 마우스 및 터치 드래그
-- 리사이즈 시 위치 재계산
-
-### `js/sections.js`
-
-메인 페이지 콘텐츠 섹션 담당
-
-- 오늘의 선택
-- MD 추천
-- 출판사 추천
-- 트렌드+
-- 독서·기록 아이템
-- AI Picks
-- 베스트
-- 교보문고 ONLY
-- CASTing
-- 이벤트 배너
-
-API 도서 영역과 로컬 이미지 기반 콘텐츠 영역이 함께 들어 있습니다.
-
-### `js/init.js`
-
-메인 페이지 실행 진입점 역할
-
-- 여러 API 섹션을 `Promise.all()`로 동시에 로딩
-- 창 크기 변경 시 헤더 및 슬라이더 재계산
-
-### `js/sub.js`
-
-상세 페이지 전용 스크립트
-
-- 상품 이미지 갤러리
-- Kakao 도서 API 호출
-- 연관 도서 / 베스트 / 키워드 Pick / 저자 도서 / 신간 렌더링
-- 광고 배너 자동 슬라이더
-- 상세 콘텐츠 펼치기 / 접기
-- 탭 스크롤 이동
-- 리뷰 라이트박스
-- 구매 수량 및 합계 계산
-
-`sub.html`은 메인 페이지의 ES Module 구조와 분리되어 있으며, `sub.js` 내부에 상세 페이지용 Kakao API 호출 코드가 별도로 존재합니다.
-
----
-
-## 🔌 Kakao 도서 검색 API
-
-프로젝트에서 사용하는 엔드포인트는 다음과 같습니다.
-
-```text
-GET https://dapi.kakao.com/v3/search/book
-```
-
-메인 페이지에서는 `js/core.js`, 상세 페이지에서는 `js/sub.js`에서 API를 호출합니다.
-
-### 주요 요청값
-
-```text
-query : 검색어
-size  : 요청 도서 수
-sort  : accuracy / latest
-page  : 페이지 번호
-```
-
-### 프로젝트에서 사용하는 주요 응답 필드
-
-```text
-title
-thumbnail
-authors
-contents
-isbn
-price
-sale_price
-```
-
-### 메인 페이지 도서 필터링
-
-`collectUniqueBooks()`는 API 응답을 그대로 사용하지 않고 다음 조건을 거칩니다.
-
-1. 제목이 없는 도서 제외
-2. 썸네일이 없는 도서 제외
-3. 제외 키워드가 포함된 도서 제외
-4. 정규화한 제목이 중복되면 제외
-5. ISBN이 중복되면 제외
-6. 검색어별 최대 3페이지까지 확인
-
-베스트 영역은 별도 로직을 사용하며 검색어별 최대 2페이지까지 확인해 10권을 수집합니다.
-
----
-
-## 🔐 API 키 설정
-
-현재 압축본에서는 Kakao REST API 인증값이 JavaScript 파일 내부에 직접 선언되어 있습니다.
-
-```text
-js/core.js
-js/sub.js
-```
-
-두 파일은 각각 독립적으로 API를 호출하기 때문에, 키를 교체할 경우 **두 파일의 값을 함께 변경해야 합니다.**
-
-> ⚠️ 공개 저장소에 실제 API 키를 그대로 올리는 방식은 권장하지 않습니다. 이미 공개된 키라면 Kakao Developers에서 재발급 또는 폐기 후 새 키로 교체하는 것이 안전합니다.
-
-프론트엔드 정적 프로젝트 특성상 브라우저에 포함된 키를 완전히 숨길 수 없으므로, 실제 서비스 환경에서는 별도 백엔드 또는 프록시 서버를 두는 방식을 고려할 수 있습니다.
-
----
-
-## 📁 실제 파일 구조
+## 📁 파일 구조
 
 ```text
 0827_002-main/
@@ -289,11 +174,11 @@ js/sub.js
 │
 ├── js/
 │   ├── core.js                # Kakao API / 공통 헬퍼 / 필터
-│   ├── book-components.js     # 공통 책 카드 / 중복 제거 / 슬라이더
+│   ├── book-components.js     # 공통 도서 카드 / 중복 제거 / 슬라이더
 │   ├── layout.js              # 헤더 / 메인·미니 슬라이더
-│   ├── sections.js            # 메인 콘텐츠 섹션
+│   ├── sections.js            # 메인 콘텐츠 섹션 렌더링
 │   ├── init.js                # 메인 페이지 실행 진입점
-│   └── sub.js                 # 상세 페이지 전용 기능
+│   └── sub.js                 # 상세 페이지 전용 인터랙션 + API
 │
 ├── img/
 │   ├── ai/
@@ -316,38 +201,240 @@ js/sub.js
 │       └── review_img/
 │
 ├── sub_txt/
-│   ├── sub.txt                # 책 소개 / 출판사 서평 참고 텍스트
-│   ├── reviews.txt            # 리뷰 / 문장수집 참고 데이터
-│   └── Return Information.txt # 교환·반품 참고 텍스트
+│   ├── sub.txt
+│   ├── reviews.txt
+│   └── Return Information.txt
 │
 └── .vscode/
-    └── settings.json          # Live Server 포트 5501 설정
+    └── settings.json          # Live Server 포트 5501
 ```
 
-`sub_txt` 폴더의 텍스트 파일은 현재 JavaScript가 런타임에 `fetch()`해서 사용하는 데이터 파일이 아닙니다. 상세 페이지 제작에 사용한 **참고 텍스트 자료**이며, 실제 화면에 표시되는 내용은 `sub.html` 내부에 작성되어 있습니다.
+> `sub_txt`의 텍스트 파일은 현재 런타임에서 직접 불러오는 데이터 파일이 아니라, 상세 페이지 제작에 사용된 참고 텍스트입니다. 화면에 표시되는 본문은 `sub.html`에 작성되어 있습니다.
 
 ---
 
-## 🚀 실행 방법
+## 🔌 Kakao 도서 검색 API
+
+### 엔드포인트
+
+```text
+GET https://dapi.kakao.com/v3/search/book
+```
+
+### 프로젝트에서 사용하는 주요 요청값
+
+| 파라미터 | 용도 |
+| --- | --- |
+| `query` | 도서 검색어 |
+| `size` | 한 번에 요청하는 결과 수 |
+| `sort` | `accuracy` 또는 `latest` |
+| `page` | 추가 결과 탐색을 위한 페이지 번호 |
+
+### 사용하는 주요 응답 필드
+
+| 필드 | 사용 위치 |
+| --- | --- |
+| `title` | 도서명 |
+| `thumbnail` | 표지 이미지 |
+| `authors` | 저자명 |
+| `contents` | 도서 소개 |
+| `isbn` | 중복 제거 기준 |
+| `price` / `sale_price` | 상세 도서 가격 표시 |
+
+### 실제 호출 코드 — `js/core.js`
+
+아래 코드는 **현재 `core.js`에서 발췌한 로직**이며, API 키 값만 보안을 위해 마스킹했습니다.
+
+```js
+const KAKAO_REST_API_KEY = "KakaoAK YOUR_REST_API_KEY";
+
+export async function fetchKakaoBooks(
+    query,
+    size = 30,
+    sort = "accuracy",
+    page = 1
+) {
+    const params = new URLSearchParams({
+        query,
+        size,
+        sort,
+        page
+    });
+
+    const response = await fetch(
+        "https://dapi.kakao.com/v3/search/book?" + params,
+        {
+            method: "GET",
+            headers: {
+                Authorization: KAKAO_REST_API_KEY
+            }
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("HTTP 오류: " + response.status);
+    }
+
+    return response.json();
+}
+```
+
+---
+
+## ⚙️ 핵심 구현 포인트
+
+### 1. API 결과를 그대로 쓰지 않고 정제 후 사용
+
+검색어가 달라도 동일한 도서가 반복해서 들어올 수 있기 때문에 **정규화한 제목과 ISBN을 각각 `Set`으로 관리**합니다. 제목이나 썸네일이 없는 데이터와 제외 대상 도서도 렌더링 전에 걸러냅니다.
+
+```js
+if (!book.thumbnail || !book.title) {
+    continue;
+}
+
+if (isExcluded(book)) {
+    continue;
+}
+
+const cleanTitle = book.title
+    .replace(/\s+/g, "")
+    .replace(/[^가-힣a-zA-Z0-9]/g, "")
+    .toLowerCase();
+
+const isbn = getISBN(book);
+
+if (titleSet.has(cleanTitle)) {
+    continue;
+}
+
+if (isbn && isbnSet.has(isbn)) {
+    continue;
+}
+
+if (data.meta && data.meta.is_end) {
+    break;
+}
+```
+
+### 2. 여러 API 섹션을 동시에 초기화
+
+메인 페이지 진입 시 여섯 개의 도서 섹션을 순차 호출하지 않고 `Promise.all()`로 함께 실행합니다.
+
+```js
+await Promise.all([
+    loadChoice(),
+    loadMD(),
+    loadPublisherBooks(),
+    loadTrendBooks(),
+    loadAIPicks(),
+    loadBestBooks()
+]);
+```
+
+### 3. 공통 카드와 슬라이더 로직 재사용
+
+`book-components.js`에 반복되는 UI 로직을 분리해 여러 섹션에서 같은 구조를 다시 사용합니다.
+
+```js
+books
+    .slice(0, 6)
+    .map(createStandardBook)
+    .join("");
+
+setupTwoPageSlider(
+    mdTrack,
+    mdPrev,
+    mdNext
+);
+```
+
+### 4. API 문자열을 DOM에 넣기 전 이스케이프
+
+API 응답값을 템플릿 문자열에 삽입하기 전에 `escapeHTML()`을 적용해 HTML 특수문자를 변환합니다.
+
+```js
+export function escapeHTML(value) {
+    if (!value) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+```
+
+### 5. 화면 크기 변화에 맞춰 슬라이더 상태 재계산
+
+창 크기가 바뀌면 헤더 기준 위치와 여러 슬라이더 위치를 다시 계산합니다.
+
+```js
+window.addEventListener("resize", function () {
+    recalcStickyStart();
+    updateMainSlider();
+    updateMini();
+    moveKyoboOnlySlider();
+});
+```
+
+---
+
+## 🧩 정적 콘텐츠와 API 콘텐츠
+
+| 영역 | 데이터 방식 |
+| --- | --- |
+| 메인 비주얼 / 미니 슬라이더 | 로컬 이미지 |
+| 오늘의 선택 | Kakao API |
+| MD 추천 | Kakao API |
+| 출판사 추천 | Kakao API |
+| 트렌드+ | Kakao API |
+| 독서·기록 아이템 | 로컬 이미지 |
+| AI Picks | Kakao API |
+| 베스트 | Kakao API |
+| 교보문고 ONLY / CASTing / 이벤트 배너 | 로컬 데이터·이미지 |
+| 상세 페이지 기본 상품 정보 | `sub.html` 고정 콘텐츠 |
+| AI 연관 추천 / 이 분야 베스트 | Kakao API |
+| 키워드 Pick / 저자 도서 / 이 분야 신간 | Kakao API |
+| 리뷰 / 교환·반품 등 상세 본문 | `sub.html` 고정 콘텐츠 |
+
+---
+
+## 🛠️ 기술 스택
+
+| 구분 | 기술 | 사용 목적 |
+| --- | --- | --- |
+| Markup | HTML5 | 메인·상세 페이지 구조 |
+| Style | CSS3 | Flexbox, Grid, 반응형 레이아웃, 슬라이더 UI |
+| Script | Vanilla JavaScript | DOM 조작, 이벤트, 비동기 처리 |
+| Module | ES Module | 메인 페이지 기능별 JavaScript 분리 |
+| API | Kakao REST API | 실제 도서 검색 데이터 호출 |
+| Version Control | Git / GitHub | 프로젝트 관리 및 배포 |
+
+---
+
+## 🚀 로컬 실행 방법
 
 별도의 npm 설치나 빌드 과정은 없습니다.
 
-### VS Code Live Server 사용
+### VS Code Live Server
 
-1. 프로젝트 폴더를 VS Code로 엽니다.
-2. Live Server 확장 프로그램을 설치합니다.
-3. `index.html`에서 **Open with Live Server**를 실행합니다.
-4. 프로젝트의 `.vscode/settings.json`에는 Live Server 포트가 `5501`로 설정되어 있습니다.
+```text
+1. 프로젝트 폴더를 VS Code로 열기
+2. Live Server 확장 프로그램 설치
+3. index.html 우클릭
+4. Open with Live Server 실행
+```
 
-예시:
+프로젝트의 `.vscode/settings.json`에는 Live Server 포트가 `5501`로 설정되어 있습니다.
 
 ```text
 http://127.0.0.1:5501/index.html
 ```
 
-### Python 로컬 서버 사용
-
-Python이 설치되어 있다면 프로젝트 루트에서 아래 명령으로도 실행할 수 있습니다.
+### Python 로컬 서버
 
 ```bash
 python -m http.server 5501
@@ -359,121 +446,41 @@ python -m http.server 5501
 http://localhost:5501/index.html
 ```
 
-`index.html`은 ES Module을 사용하므로 `file://`로 직접 실행하기보다 로컬 HTTP 서버를 사용하는 편이 안전합니다.
+> `index.html`은 ES Module을 사용하므로 `file://`로 직접 실행하기보다 로컬 HTTP 서버에서 실행하는 편이 안전합니다.
 
 ---
 
-## ⚙️ 주요 구현 포인트
+## 🔐 API 키 주의
 
-### 1. API 데이터 중복 제거
-
-동일한 검색 결과가 여러 키워드에서 반복될 수 있기 때문에 제목과 ISBN을 각각 `Set`으로 관리합니다.
-
-```js
-const titleSet = new Set();
-const isbnSet = new Set();
-```
-
-제목은 공백과 특수문자를 제거한 뒤 소문자로 통일해 비교합니다.
-
-### 2. API 응답 필터링
-
-메인 페이지는 `isExcluded()`를 통해 학습서·수험서 관련 키워드와 별도 제한 키워드가 포함된 데이터를 제외합니다.
-
-### 3. HTML 이스케이프
-
-API에서 받아온 제목, 저자, 이미지 URL 등을 DOM 문자열에 넣기 전에 `escapeHTML()`로 처리합니다.
-
-### 4. 재사용 가능한 도서 카드
-
-여러 섹션에서 동일한 카드 구조를 반복하지 않도록 `createStandardBook()`을 공통 컴포넌트로 사용합니다.
-
-### 5. 기능별 JavaScript 모듈 분리
-
-메인 페이지 로직을 API, 공통 컴포넌트, 레이아웃, 콘텐츠 섹션, 초기화 파일로 나누어 관리합니다.
+현재 압축본의 `js/core.js`와 `js/sub.js`에는 Kakao REST API 인증값이 프론트엔드 JavaScript에 직접 선언되어 있습니다.
 
 ```text
-core.js
-  ↓
-book-components.js
-  ↓
-sections.js
-  ↓
-init.js
+js/core.js
+js/sub.js
 ```
 
-`layout.js`는 헤더와 슬라이더를 별도로 담당합니다.
+두 파일이 각각 API를 호출하므로 키를 바꿀 때는 **두 위치를 함께 변경**해야 합니다.
 
-### 6. 반응형 슬라이더 위치 보정
-
-창 크기가 달라질 때 현재 카드 너비와 노출 개수를 다시 계산해 슬라이더 위치와 버튼 상태를 갱신합니다.
+> 공개 저장소에 실제 REST API 키가 올라간 상태라면 기존 키를 재발급 또는 폐기하는 것이 안전합니다. 정적 프론트엔드에서는 브라우저에 포함된 값을 완전히 숨길 수 없으므로, 실제 서비스에서는 백엔드 또는 프록시를 통한 API 호출 구조가 적합합니다.
 
 ---
 
-## 🧩 정적 콘텐츠와 API 콘텐츠 구분
+## 📈 기술적 성장 포인트
 
-| 영역 | 데이터 방식 |
+| 주제 | 실제 구현을 통해 다룬 내용 |
 | --- | --- |
-| 메인 비주얼 슬라이더 | 로컬 이미지 |
-| 미니 슬라이더 | 로컬 이미지 |
-| 오늘의 선택 | Kakao API |
-| MD 추천 | Kakao API |
-| 출판사 추천 | Kakao API |
-| 트렌드+ | Kakao API |
-| 독서·기록 아이템 | 로컬 이미지 |
-| AI Picks | Kakao API |
-| 베스트 | Kakao API |
-| 교보문고 ONLY | 로컬 데이터 / 이미지 |
-| CASTing | 로컬 데이터 / 이미지 |
-| 이벤트 배너 | 로컬 이미지 |
-| 상세 페이지 기본 상품 정보 | HTML에 고정 |
-| 상세 페이지 연관 도서 | Kakao API |
-| 상세 페이지 리뷰 / 교환·반품 등 | HTML에 고정 |
+| **비동기 처리** | `async/await` 기반 API 호출과 `Promise.all()`을 이용한 여러 섹션 동시 로딩 |
+| **모듈 설계** | `core → book-components → sections → init`으로 API·컴포넌트·화면 로직 역할 분리 |
+| **데이터 정제** | 제목 정규화와 ISBN을 함께 사용해 API 검색 결과 중복 제거 |
+| **방어 코딩** | 제목·썸네일 누락 검사, 제외 키워드 필터, API 페이지 종료 여부(`meta.is_end`) 확인 |
+| **재사용 구조** | `createStandardBook()`, `setupTwoPageSlider()`로 반복되는 카드·슬라이더 로직 공통화 |
+| **보안 처리** | API 응답을 DOM에 삽입하기 전 `escapeHTML()` 적용 |
+| **반응형 인터랙션** | `resize` 이벤트에 맞춰 헤더 기준점과 슬라이더 위치·상태 재계산 |
+| **페이지별 역할 분리** | 메인은 API/레이아웃을 ES Module로 나누고, 상세 페이지는 `sub.js`에 전용 인터랙션 구성 |
 
 ---
 
-## ⚠️ 현재 구현 범위 및 한계
-
-현재 파일 기준으로 다음 기능은 실제 서비스 기능이 아니라 UI 또는 고정 동작입니다.
-
-- 메인 검색창은 UI만 존재하며 검색 버튼 / 엔터 입력에 API 검색 이벤트가 연결되어 있지 않습니다.
-- 상세 페이지 검색창도 실제 검색 기능이 연결되어 있지 않습니다.
-- 메인 페이지 도서 클릭 시 클릭한 책의 데이터가 전달되지 않고 항상 같은 `sub.html`로 이동합니다.
-- 상세 페이지의 핵심 상품 정보는 ADsP 교재로 고정되어 있습니다.
-- 로그인, 회원가입, 장바구니, 주문, 결제 등 실제 커머스 기능은 구현되어 있지 않습니다.
-- 다수의 `href="#"` 링크는 실제 목적지를 가지지 않습니다.
-- 메인 페이지에서는 목적지가 없는 링크 클릭 시 기본 동작을 막도록 처리되어 있습니다.
-- `sub_txt` 폴더의 파일은 현재 화면 렌더링에 직접 연결되어 있지 않습니다.
-
----
-
-## 🔧 다음 단계로 확장할 수 있는 기능
-
-현재 구조를 유지하면서 아래 순서로 확장할 수 있습니다.
-
-1. 메인 도서 카드 클릭 시 ISBN 또는 제목을 URL 파라미터로 전달
-2. `sub.html`에서 URL 값을 읽어 Kakao API로 실제 선택 도서 조회
-3. 상세 페이지 상품명 / 저자 / 가격 / 이미지 동적 렌더링
-4. 검색창에 실제 Kakao API 검색 기능 연결
-5. API 키를 직접 노출하지 않도록 서버 프록시 구성
-6. `sub_txt`의 리뷰·교환반품 데이터를 JSON 또는 별도 데이터 파일로 구조화해 동적 렌더링
-
----
-
-## 🛠️ 기술 스택
-
-| 구분 | 기술 | 사용 내용 |
-| --- | --- | --- |
-| Markup | HTML5 | 메인·상세 페이지 구조 |
-| Style | CSS3 | Flexbox, Grid, 반응형 레이아웃, 슬라이더 UI |
-| Script | Vanilla JavaScript | DOM 제어, 이벤트, ES Module, 비동기 API 호출 |
-| API | Kakao REST API | 도서 검색 데이터 호출 |
-| Version Control | Git / GitHub | 프로젝트 관리 및 배포 |
-
----
-
-## 📚 참고
+## 🔗 참고
 
 - Kakao Developers — 도서 검색 API
-- 교보문고 UI를 참고하여 학습 목적으로 제작한 클론 프로젝트입니다.
-
+- 교보문고 UI를 참고해 학습 목적으로 제작한 클론 프로젝트입니다.
